@@ -23,6 +23,16 @@ export default function ChatRoom() {
   const [messages] = useCollectionData(query, { idField: 'id' });  //
   const [formValue, setFormValue] = useState('')
 
+  const sendMessage = async(e) => {
+    e.preventDefault();
+    await messagesRef.add({
+      text: formValue,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+    });
+
+    setFormValue('');
+  }
+
   return (
     <>
       <main>
@@ -31,7 +41,7 @@ export default function ChatRoom() {
       </main>
 
       <form onSumbit={sendMessage}>
-        <input value={formValue onChange={ (e) => setFormValue(e.target.value) }/>
+        <input value={formValue} onChange={ (e) => setFormValue(e.target.value) }/>
         <button type="submit">Send</button>
       </form>
     </>
