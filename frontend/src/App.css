@@ -9,7 +9,6 @@ body {
   color: black;
 }
 
-
 .App {
   text-align: center;
   max-width: 100%;
@@ -96,7 +95,6 @@ button {
   color: white;
   padding: 15px 32px;
   text-align: center;
-  text-decoration: none;
   display: inline-block;
   cursor: pointer;
   font-size: 1.25rem;
@@ -107,6 +105,12 @@ button:disabled {
   cursor: not-allowed;
 }
 
+<<<<<<< HEAD
+=======
+a {
+    text-decoration: none;
+}
+>>>>>>> c531d7bfec901c076320fce9c9fd1b0c60c898f9
 
 ul, li {
   text-align: left;
