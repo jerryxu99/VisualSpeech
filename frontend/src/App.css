@@ -105,12 +105,9 @@ button:disabled {
   cursor: not-allowed;
 }
 
-<<<<<<< HEAD
-=======
 a {
     text-decoration: none;
 }
->>>>>>> c531d7bfec901c076320fce9c9fd1b0c60c898f9
 
 ul, li {
   text-align: left;
