@@ -73,7 +73,6 @@ main {
   height: 40vh;
   background-color: #e3e9ed;
   overflow: hidden;
-
 }
 
 main::-webkit-scrollbar {
@@ -164,7 +163,7 @@ p {
   position: relative;
   color: black;
   text-align: center;
-  justify-content: space-evenly ;
+  justify-content: center ;
 }
 
 .message {
