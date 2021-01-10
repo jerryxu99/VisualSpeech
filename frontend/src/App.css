@@ -69,7 +69,6 @@ form {
   bottom: 0;
   background-color: rgb(119, 118, 118);
   width: 100%;
-  max-width: 728px;
   display: flex;
   font-size: 1.5rem;
 }
@@ -107,7 +106,6 @@ button:disabled {
   opacity: 0.5;
   cursor: not-allowed;
 }
-
 
 
 ul, li {
