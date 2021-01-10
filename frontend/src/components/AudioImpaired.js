@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import ChatRoom from './ChatRoom';
+import AIChatRoom from './AIChatRoom';
 
 export default function AudioImpaired() {
   return (
@@ -12,7 +12,7 @@ export default function AudioImpaired() {
       </header>
 
       <section>
-        <ChatRoom />
+        <AIChatRoom />
       </section>
     </div>
   );
