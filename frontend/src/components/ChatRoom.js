@@ -50,5 +50,5 @@ export default function ChatRoom() {
 
 function ChatMessage(props) {
   const {text} = props.message;
-  return <p>{text}</p>;
+  return <p className="message">{text}</p>;
 }
