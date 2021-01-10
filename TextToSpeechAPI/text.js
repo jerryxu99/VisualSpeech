@@ -28,6 +28,6 @@ async function getSpeech(text) {
   return response.audioContent;
 }
 
-getSpeech();
+getSpeech('hello world');
 
 module.exports = getSpeech;

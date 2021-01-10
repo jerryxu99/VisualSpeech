@@ -54,10 +54,6 @@ function ChatRoom() {
 
   const sendMessage = async (e) => {
     e.preventDefault();
-<<<<<<< HEAD
-=======
-
->>>>>>> aadf0b64296702750c5b6aa80e64b628df46365b
 
     await messagesRef.add({
       text: formValue,
