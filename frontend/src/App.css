@@ -168,7 +168,6 @@ p {
 }
 
 .message {
-  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -201,7 +200,7 @@ img {
   width: 100%;
 }
 
-h1 {
+.container h1 {
   margin-top: 5.2em;
 }
 
