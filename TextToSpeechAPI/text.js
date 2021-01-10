@@ -7,10 +7,7 @@ const util = require('util');
 // Creates a client
 const client = new textToSpeech.TextToSpeechClient();
 
-async function quickStart() {
-  // The text to synthesize
-  const text = 'hello, world!';
-
+async function getSpeech(text) {
   // Construct the request
   const request = {
     input: { text: text },
@@ -31,4 +28,6 @@ async function quickStart() {
   return response.audioContent;
 }
 
-quickStart();
+getSpeech('hello world');
+
+module.exports = getSpeech;
