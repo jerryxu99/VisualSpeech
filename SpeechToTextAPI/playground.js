@@ -4,7 +4,7 @@ const speech = require('@google-cloud/speech');
 // Creates a client
 const client = new speech.SpeechClient();
 
-async function quickstart() {
+module.exports = async function getText() {
   // The path to the remote LINEAR16 file
   const gcsUri = 'gs://cloud-samples-data/speech/brooklyn_bridge.raw';
 
@@ -27,6 +27,7 @@ async function quickstart() {
   const transcription = response.results
     .map((result) => result.alternatives[0].transcript)
     .join('\n');
-  console.log(`Transcription: ${transcription}`);
-}
-quickstart();
+  return transcription;
+};
+
+getText();
