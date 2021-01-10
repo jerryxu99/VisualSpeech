@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import ChatRoom from './ChatRoom';
+import AIChatRoom from './AIChatRoom';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
@@ -25,7 +25,7 @@ export default function AudioImpaired() {
       </header>
 
       <section>
-        <ChatRoom />
+        <AIChatRoom />
       </section>
     </div>
   );
