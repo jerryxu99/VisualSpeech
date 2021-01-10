@@ -40,10 +40,14 @@ body {
   background-color: rgb(255, 255, 255);
 }
 
+.center {
+    margin: 0 auto;
+}
+
 main {
   padding: 10px;
   height: 80vh;
-  margin: 10vh 0 10vh;
+  /* margin: 10vh 0 10vh; */
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
@@ -105,12 +109,9 @@ button:disabled {
   cursor: not-allowed;
 }
 
-<<<<<<< HEAD
-=======
 a {
     text-decoration: none;
 }
->>>>>>> c531d7bfec901c076320fce9c9fd1b0c60c898f9
 
 ul, li {
   text-align: left;
