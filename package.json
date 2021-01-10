@@ -12,7 +12,5 @@
   "dependencies": {
     "@google-cloud/speech": "^4.2.0"
   },
-  "devDependencies": {
-    "env-cmd": "^10.1.0"
-  }
+  "devDependencies": {}
 }
