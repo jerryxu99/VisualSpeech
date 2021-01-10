@@ -1,6 +1,9 @@
-import React, {useState, useRef} from 'react';
+import React from 'react';
 import './App.css';
+import AudioImpaired from './components/AudioImpaired';
+import VisuallyImpaired from './components/VisuallyImpaired.js';
 
+<<<<<<< HEAD
 import {
   BrowserRouter as Router,
   Switch,
@@ -26,34 +29,36 @@ firebase.initializeApp({
 })
 
 const firestore = firebase.firestore();
+=======
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+>>>>>>> ce9df6c10bdb2e7a4202203c26a4968c01b50a2c
 
 function App() {
-
   return (
-      <Router>
-        {/*
+    <Router>
+      {/*
           A <Switch> looks through all its children <Route>
           elements and renders the first one whose path
           matches the current URL. Use a <Switch> any time
           you have multiple routes, but you want only one
           of them to render at a time
         */}
-        <Switch>
-          <Route exact path="/">
-            <Home />
-          </Route>
-          <Route path="/AudioImpaired">
-            <AudioImpaired />
-          </Route>
-          <Route path="/VisuallyImpaired">
-            <VisuallyImpaired />
-          </Route>
-        </Switch>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/AudioImpaired">
+          <AudioImpaired />
+        </Route>
+        <Route path="/VisuallyImpaired">
+          <VisuallyImpaired />
+        </Route>
+      </Switch>
     </Router>
   );
-
 }
 
+<<<<<<< HEAD
 function ChatRoom() {
   const dummy = useRef();
   const messagesRef = firestore.collection('messages');
@@ -122,27 +127,19 @@ function AudioImpaired() {
       <section>
       <ChatRoom />
       </section>
-    </div>
-  );
-}
-
-function VisuallyImpaired() {
+=======
+function Home() {
   return (
-    <div className="App">
-      <header className="App-header">
-         <button>
-           <Link to="/">Go Back</Link>
-         </button>
-        <h1>Visually Impaired</h1>
-
-      </header>
-
-      <section>
-      <ChatRoom />
-      </section>
+    <div>
+      <button>
+        <Link to="/AudioImpaired">Audio Impaired</Link>
+      </button>
+      <button>
+        <Link to="/VisuallyImpaired">Visually Impaired</Link>
+      </button>
+>>>>>>> ce9df6c10bdb2e7a4202203c26a4968c01b50a2c
     </div>
   );
 }
-
 
 export default App;
