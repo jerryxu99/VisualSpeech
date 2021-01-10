@@ -6,14 +6,6 @@ import 'firebase/firestore';
 const firestore = firebase.firestore();
 
 export default function AudioImpaired() {
-  const updateBuffer = async () => {
-    const audioRef = firestore.collection('audio').doc('buffer');
-
-    await audioRef.set({
-      buffer: 'world2',
-    });
-    console.log('updated');
-  };
   return (
     <div className="App">
       <header className="App-header">
@@ -21,7 +13,6 @@ export default function AudioImpaired() {
           <Link to="/">Go Back</Link>
         </button>
         <h1>Audio Impaired</h1>
-        <button onClick={updateBuffer}></button>
       </header>
 
       <section>
