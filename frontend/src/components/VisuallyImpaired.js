@@ -1,15 +1,10 @@
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
-import ChatRoom from './ChatRoom';
+import VIChatRoom from './VIChatRoom';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
-//const getSpeech = require('../utils/text');
 
 const firestore = firebase.firestore();
-=======
-import VIChatRoom from './VIChatRoom';
->>>>>>> a94d5136b45a3f7c33506babfd44c1a0010b8c41
 
 export default function VisuallyImpaired() {
   useEffect(() => {
