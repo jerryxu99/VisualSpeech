@@ -105,9 +105,12 @@ button:disabled {
   cursor: not-allowed;
 }
 
+<<<<<<< HEAD
+=======
 a {
     text-decoration: none;
 }
+>>>>>>> c531d7bfec901c076320fce9c9fd1b0c60c898f9
 
 ul, li {
   text-align: left;
@@ -153,46 +156,31 @@ img {
 
 /*HOME*/
 
-.split {
-  height: 100%;
-  width: 50%;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  overflow-x: hidden;
-  padding-top: 20px;
-}
-
-#container {
-  height: 100%;
+.container {
+  display: table;
+  width: 100%;
 }
 
 .top {
-  height:50%;
-  width:100%;
-  margin:auto;
+  position: absolute;
+  top: 0px;
+  height: 50%;
   text-align:center;
+  align-content: center;
   background-color: #b2cbfd;
   transition: transform .5s;
+  width: 100%;
 }
 
 .bottom {
-  height:50%;
-  width:100%;
-  margin:auto;
+  position: absolute;
+  bottom: 0px;
+  height: 50%;
+  
   text-align:center;
   background-color: red;
   transition: transform .5s;
-}
-
-.centered {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  font-size: 40px;
-  color: black;
+  width: 100%;
 }
 
 .top:hover {
