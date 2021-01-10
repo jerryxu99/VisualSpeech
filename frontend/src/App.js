@@ -97,8 +97,8 @@ function ChatMessage(props){
 
 function Home() {
   return (
-    <div>
-        <button>
+    <div className="App">
+        <button >
           <Link to="/AudioImpaired">Audio Impaired</Link>
         </button>
         <button>
