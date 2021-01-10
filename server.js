@@ -5,6 +5,7 @@ const port = 5000;
 const getText = require('./SpeechToText/speech');
 const getSpeech = require('./TextToSpeech/text');
 const cors = require('cors');
+const path = require('path');
 
 const jsonParser = bodyParser.json();
 
@@ -24,6 +25,10 @@ app.post('/textToSpeech', jsonParser, async (req, res) => {
   const speechBuffer = await getSpeech(text);
   console.log({ speechBuffer });
   res.send({ speechBuffer });
+});
+
+app.get('/audio.mp3', (req, res) => {
+  res.sendFile(path.join(__dirname, './', 'output.mp3'));
 });
 
 app.listen(port, () => {

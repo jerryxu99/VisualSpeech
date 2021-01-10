@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
+import axios from 'axios';
 const fs = require('browserify-fs');
 const util = require('util');
 
@@ -15,6 +16,8 @@ export default function VIChatRoom() {
   const [formValue, setFormValue] = useState('');
 
   useEffect(() => {
+    document.addEventListener('keydown', playAudio);
+
     const doc = firestore.collection('audio').doc('buffer');
 
     const observer = doc.onSnapshot(
@@ -24,7 +27,6 @@ export default function VIChatRoom() {
         const buffer = docSnapshot.data().buffer;
         const bufferOriginal = Buffer.from(buffer.data);
         console.log(bufferOriginal);
-        createAudio(bufferOriginal);
       },
       (err) => {
         console.log(`Encountered error: ${err}`);
@@ -32,15 +34,15 @@ export default function VIChatRoom() {
     );
   }, []);
 
-  const createAudio = async (buffer) => {
-    const writeFile = util.promisify(fs.writeFile);
-    await writeFile('output.mp3', buffer, 'binary');
-
-    console.log('Audio content written to file: output.mp3');
-    fs.readFile('./output.mp3', 'binary', (err, data) => {
+  const playAudio = () => {
+    console.log('playing audio');
+    fs.readFile('./output.mp3', (err, data) => {
+      console.log('data:');
       console.log(data);
     });
-    const audio = new Audio('./output.mp3');
+
+    const audio = new Audio('http://localhost:5000/audio.mp3');
+    console.log(audio.src);
     audio.play();
   };
 
@@ -52,6 +54,24 @@ export default function VIChatRoom() {
     });
 
     setFormValue('');
+    updateText();
+  };
+
+  const updateText = () => {
+    axios
+      .get('http://localhost:5000/speechToText')
+      .then(async (res) => {
+        console.log(res.data.text);
+
+        const messagesRef = firestore.collection('messages');
+        await messagesRef.add({
+          text: res.data.text,
+          createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+        });
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
 
   return (
