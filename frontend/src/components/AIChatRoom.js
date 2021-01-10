@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
@@ -31,7 +31,7 @@ export default function AIChatRoom() {
     });
 
     setFormValue('');
-    updateBuffer('new message');
+    updateBuffer(formValue);
   };
 
   const updateBuffer = async (message) => {
