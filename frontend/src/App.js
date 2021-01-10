@@ -19,7 +19,6 @@ firebase.initializeApp({
     measurementId: "G-K8WKB4EZHC"
 })
 
-
 const firestore = firebase.firestore();
 
 function App() {
@@ -49,7 +48,6 @@ function ChatRoom() {
 
   const sendMessage = async (e) => {
     e.preventDefault();
-    
 
     await messagesRef.add({
       text: formValue,
