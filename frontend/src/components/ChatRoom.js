@@ -21,6 +21,7 @@ export default function ChatRoom() {
   const query = messagesRef.orderBy('createdAt').limit(25); //
 
   const [messages] = useCollectionData(query, { idField: 'id' });  //
+  const [formValue, setFormValue] = useState('')
 
   return (
     <>
@@ -28,6 +29,11 @@ export default function ChatRoom() {
         {messages &&
           messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
       </main>
+
+      <form onSumbit={sendMessage}>
+        <input value={formValue onChange={ (e) => setFormValue(e.target.value) }/>
+        <button type="submit">Send</button>
+      </form>
     </>
   );
 }
