@@ -164,14 +164,24 @@ img {
   padding-top: 20px;
 }
 
-.left {
-  left: 0;
+#container {
+  height: 100%;
+}
+
+.top {
+  height:50%;
+  width:100%;
+  margin:auto;
+  text-align:center;
   background-color: #b2cbfd;
   transition: transform .5s;
 }
 
-.right {
-  right: 0;
+.bottom {
+  height:50%;
+  width:100%;
+  margin:auto;
+  text-align:center;
   background-color: red;
   transition: transform .5s;
 }
@@ -186,10 +196,10 @@ img {
   color: black;
 }
 
-.right:hover {
+.top:hover {
   transform: scale(1.1);
 }
 
-.left:hover {
+.bottom:hover {
   transform: scale(1.1);
 }
