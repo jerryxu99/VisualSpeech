@@ -57,7 +57,7 @@ main {
 
 #top-chat{
   position: absolute;
-  top: 0px;
+  top: 13vh;
   height: 60vh;
   text-align:center;
   align-content: center;
@@ -81,11 +81,12 @@ main::-webkit-scrollbar {
 }
 
 main::-webkit-scrollbar-track {
-  background: #5c5ceb;
+  /* background: #5c5ceb; */
+  background: white;
 }
 
 main::-webkit-scrollbar-thumb {
-  background: #f6f6f6;
+  background: black;
 }
 
 form {
@@ -134,7 +135,10 @@ button {
 #mic-img{
   height: 100px;
   width: 100px;
-  margin: 0;
+}
+
+#profile-pic{
+  margin-left: 30px;
 }
 
 button:disabled {
@@ -152,19 +156,21 @@ ul, li {
 }
 
 p {
-  max-width: 500px;
+  width: 1000px;
   margin-bottom: 12px;
   line-height: 24px;
   padding: 10px 20px;
   border-radius: 25px;
   position: relative;
   color: black;
-  text-align: center;
+  text-align: right;
+  justify-content: right;
 }
 
 .message {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .sent {

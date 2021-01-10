@@ -76,8 +76,13 @@ function ChatMessage(props) {
   const { text } = props.message;
   return (
     <>
-      <img src="./avatar.jpg" />
-      <p className="message">{text}</p>
+      <div className="">
+        
+        <p className="message">
+        {text} <img id="profile-pic" src="images/avatar.jpg"/> 
+        </p>
+        
+      </div>
     </>
   );
 }
