@@ -31,16 +31,26 @@ const firestore = firebase.firestore();
 function App() {
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>Let's chat!</h1>
-
-      </header>
-
-      <section>
-      <ChatRoom />
-      </section>
-    </div>
+      <Router>
+        {/*
+          A <Switch> looks through all its children <Route>
+          elements and renders the first one whose path
+          matches the current URL. Use a <Switch> any time
+          you have multiple routes, but you want only one
+          of them to render at a time
+        */}
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/AudioImpaired">
+            <AudioImpaired />
+          </Route>
+          <Route path="/VisuallyImpaired">
+            <VisuallyImpaired />
+          </Route>
+        </Switch>
+    </Router>
   );
 
 }
@@ -86,5 +96,55 @@ function ChatMessage(props){
         <p>{props.message}</p>
   );
 };
+
+function Home() {
+  return (
+    <div>
+        <button>
+          <Link to="/AudioImpaired">Audio Impaired</Link>
+        </button>
+        <button>
+          <Link to="/VisuallyImpaired">Visually Impaired</Link>
+        </button>
+    </div>
+  );
+}
+
+function AudioImpaired() {
+  return (
+    <div className="App">
+      <header className="App-header">
+        <button>
+           <Link to="/">Go Back</Link>
+        </button>
+        <h1>Audio Impaired</h1>
+
+      </header>
+
+      <section>
+      <ChatRoom />
+      </section>
+    </div>
+  );
+}
+
+function VisuallyImpaired() {
+  return (
+    <div className="App">
+      <header className="App-header">
+         <button>
+           <Link to="/">Go Back</Link>
+         </button>
+        <h1>Visually Impaired</h1>
+
+      </header>
+
+      <section>
+      <ChatRoom />
+      </section>
+    </div>
+  );
+}
+
 
 export default App;
