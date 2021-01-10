@@ -81,11 +81,12 @@ main::-webkit-scrollbar {
 }
 
 main::-webkit-scrollbar-track {
-  background: #5c5ceb;
+  /* background: #5c5ceb; */
+  background: white;
 }
 
 main::-webkit-scrollbar-thumb {
-  background: #f6f6f6;
+  background: black;
 }
 
 form {
