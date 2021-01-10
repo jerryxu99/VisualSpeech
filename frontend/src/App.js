@@ -25,14 +25,18 @@ function App() {
 
 function Home() {
   return (
-    <div>
-      <button>
-        <Link to="/AudioImpaired">Audio Impaired</Link>
-      </button>
-      <button>
-        <Link to="/VisuallyImpaired">Visually Impaired</Link>
-      </button>
-    </div>
+      <div>
+      <Link to="/AudioImpaired">
+        <div class="split left">
+          <div class="centered">Audio Impaired</div>
+        </div>
+      </Link>
+      <Link to="/VisuallyImpaired">
+        <div class="split right">
+          <div class="centered">Visually Impaired</div>
+        </div>
+      </Link>
+      </div>
   );
 }
 
