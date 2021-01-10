@@ -90,5 +90,15 @@ export default function VIChatRoom() {
 
 function ChatMessage(props) {
   const { text } = props.message;
-  return <p>{text}</p>;
+  return (
+    <>
+      <div className="">
+        
+        <p className="message">
+        {text} <img id="profile-pic" src="images/avatar.jpg"/> 
+        </p>
+        
+      </div>
+    </>
+  );
 }
