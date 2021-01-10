@@ -2,6 +2,10 @@ body {
   background-color: #b2cbfd;
 }
 
+.p{
+  color: black;
+}
+
 .App {
   text-align: center;
   max-width: 728px;
@@ -121,7 +125,6 @@ p {
   display: flex;
   align-items: center;
 }
-
 
 .sent {
   flex-direction: row-reverse;

@@ -1,9 +1,7 @@
 import { useState, useRef } from 'react';
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-import 'firebase/auth';
-import 'firebase/analytics';
-import { useCollectionData } from 'react-firebase-hooks/firestore';
+import firebase from 'firebase/app'; //
+import 'firebase/firestore';//
+import { useCollectionData } from 'react-firebase-hooks/firestore'; //
 
 firebase.initializeApp({
   apiKey: 'AIzaSyCl_pgIXTsrdIdOspvpZhIYRlZpsGElwz0',
@@ -16,47 +14,25 @@ firebase.initializeApp({
   measurementId: 'G-K8WKB4EZHC',
 });
 
-const firestore = firebase.firestore();
+const firestore = firebase.firestore(); //
 
 export default function ChatRoom() {
-  const dummy = useRef();
-  const messagesRef = firestore.collection('messages');
-  const query = messagesRef.orderBy('createdAt').limit(25);
+  const messagesRef = firestore.collection('messages'); //
+  const query = messagesRef.orderBy('createdAt').limit(25); //
 
-  const [messages] = useCollectionData(query, { idField: 'id' });
-  const [formValue, setFormValue] = useState('');
-
-  const sendMessage = async (e) => {
-    e.preventDefault();
-
-    await messagesRef.add({
-      text: formValue,
-      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-    });
-
-    setFormValue('');
-    dummy.current.scrollIntoView({ behavior: 'smooth' });
-  };
+  const [messages] = useCollectionData(query, { idField: 'id' });  //
 
   return (
     <>
       <main>
         {messages &&
           messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
-        <div ref={dummy}></div>
       </main>
-
-      <form onSubmit={sendMessage}>
-        <input
-          value={formValue}
-          onChange={(e) => setFormValue(e.target.value)}
-        />
-        <button type="submit">Send</button>
-      </form>
     </>
   );
 }
 
 function ChatMessage(props) {
-  return <p>{props.message}</p>;
+  const {text} = props.message;
+  return <p>{text}</p>;
 }
