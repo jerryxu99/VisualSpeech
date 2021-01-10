@@ -28,7 +28,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>Let's chat!</h1>
-        <SignOut />
+  
       </header>
 
       <section>
@@ -36,14 +36,7 @@ function App() {
       </section>
     </div>
   );
-}
 
-function SignOut(){
-  return (
-    <>
-      <button>Sign Out</button>
-    </>
-  )
 }
 
 function ChatRoom() {
