@@ -32,6 +32,4 @@ async function getText() {
   return transcription;
 }
 
-getText();
-
 module.exports = getText;

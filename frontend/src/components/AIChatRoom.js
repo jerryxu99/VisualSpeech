@@ -2,6 +2,7 @@ import { useState, useRef } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
+import axios from 'axios';
 
 firebase.initializeApp({
   apiKey: 'AIzaSyCl_pgIXTsrdIdOspvpZhIYRlZpsGElwz0',
@@ -30,6 +31,26 @@ export default function AIChatRoom() {
     });
 
     setFormValue('');
+    updateBuffer('new message');
+  };
+
+  const updateBuffer = async (message) => {
+    axios
+      .post('http://localhost:5000/textToSpeech', {
+        text: message,
+      })
+      .then(async (res) => {
+        const buffer = res.data.speechBuffer;
+        const audioRef = firestore.collection('audio').doc('buffer');
+
+        await audioRef.set({
+          buffer,
+        });
+        console.log('message sent');
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   };
 
   return (
