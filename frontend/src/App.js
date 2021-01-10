@@ -27,18 +27,18 @@ function Home() {
   return (
     <div class="container">
       
-      <div class="top">
-        <Link to="/AudioImpaired">
+      <Link to="/AudioImpaired">
+        <div class="top">
           <h1>Audio Impaired</h1>
-        </Link>
-      </div>
-      
-      <div class="bottom">
-        <Link to="/VisuallyImpaired">
+        </div>
+      </Link>
+
+      <Link to="/VisuallyImpaired">
+        <div class="bottom">
           <h1>Visually Impaired</h1>
-        </Link>
-      </div>
-    
+        </div>
+      </Link>
+      
     </div>
   );
 }

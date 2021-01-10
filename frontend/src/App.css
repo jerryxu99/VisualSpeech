@@ -177,7 +177,6 @@ img {
   position: absolute;
   bottom: 0px;
   height: 50%;
-  
   text-align:center;
   background-color: red;
   transition: transform .5s;
