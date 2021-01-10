@@ -25,8 +25,10 @@ export default function VIChatRoom() {
   return (
     <>
       <main>
+        <div class="center">
         {messages &&
           messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
+          </div>
       </main>
 
       <form onSubmit={sendMessage}>

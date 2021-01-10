@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import firebase from 'firebase/app'; //
-import 'firebase/firestore'; //
-import { useCollectionData } from 'react-firebase-hooks/firestore'; //
+import { useState, useRef } from 'react';
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 firebase.initializeApp({
   apiKey: 'AIzaSyCl_pgIXTsrdIdOspvpZhIYRlZpsGElwz0',
@@ -14,13 +14,12 @@ firebase.initializeApp({
   measurementId: 'G-K8WKB4EZHC',
 });
 
-const firestore = firebase.firestore(); //
+const firestore = firebase.firestore();
 
 export default function AIChatRoom() {
-  const messagesRef = firestore.collection('messages'); //
-  const query = messagesRef.orderBy('createdAt').limit(25); //
-
-  const [messages] = useCollectionData(query, { idField: 'id' }); //
+  const messagesRef = firestore.collection('messages');
+  const query = messagesRef.orderBy('createdAt').limit(25);
+  const [messages] = useCollectionData(query, { idField: 'id' });
   const [formValue, setFormValue] = useState('');
 
   const sendMessage = async (e) => {
@@ -36,8 +35,10 @@ export default function AIChatRoom() {
   return (
     <>
       <main>
-        {messages &&
-          messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
+        <div class="center">
+          {messages &&
+            messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
+        </div>
       </main>
       <form onSubmit={sendMessage}>
         <input
@@ -52,5 +53,10 @@ export default function AIChatRoom() {
 
 function ChatMessage(props) {
   const { text } = props.message;
-  return <p className="message">{text}</p>;
+  return (
+    <>
+      <img src="./avatar.jpg" />
+      <p className="message">{text}</p>
+    </>
+  );
 }
