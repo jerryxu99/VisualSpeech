@@ -68,7 +68,6 @@ form {
   bottom: 0;
   background-color: rgb(119, 118, 118);
   width: 100%;
-  max-width: 728px;
   display: flex;
   font-size: 1.5rem;
 }
@@ -106,9 +105,12 @@ button:disabled {
   cursor: not-allowed;
 }
 
+<<<<<<< HEAD
+=======
 a {
     text-decoration: none;
 }
+>>>>>>> c531d7bfec901c076320fce9c9fd1b0c60c898f9
 
 ul, li {
   text-align: left;
