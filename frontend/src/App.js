@@ -26,19 +26,16 @@ function App() {
 function Home() {
   return (
     <div class="container">
-      
       <Link to="/AudioImpaired">
-        <div class="top">
+      <div class="top">
           <h1>Audio Impaired</h1>
-        </div>
+      </div>
       </Link>
-
       <Link to="/VisuallyImpaired">
-        <div class="bottom">
+      <div class="bottom">
           <h1>Visually Impaired</h1>
-        </div>
+      </div>
       </Link>
-      
     </div>
   );
 }

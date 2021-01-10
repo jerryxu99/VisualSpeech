@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
@@ -10,9 +10,9 @@ export default function VIChatRoom() {
   const query = messagesRef.orderBy('createdAt').limit(25);
 
   const [messages] = useCollectionData(query, { idField: 'id' });
-  const [formValue, setFormValue] = useState('')
+  const [formValue, setFormValue] = useState('');
 
-  const sendMessage = async(e) => {
+  const sendMessage = async (e) => {
     e.preventDefault();
     await messagesRef.add({
       text: formValue,
@@ -20,7 +20,7 @@ export default function VIChatRoom() {
     });
 
     setFormValue('');
-  }
+  };
 
   return (
     <>
@@ -32,7 +32,10 @@ export default function VIChatRoom() {
       </main>
 
       <form onSubmit={sendMessage}>
-        <input value={formValue} onChange={ (e) => setFormValue(e.target.value) }/>
+        <input
+          value={formValue}
+          onChange={(e) => setFormValue(e.target.value)}
+        />
         <button type="submit">Send</button>
       </form>
     </>
@@ -40,6 +43,6 @@ export default function VIChatRoom() {
 }
 
 function ChatMessage(props) {
-  const {text} = props.message;
+  const { text } = props.message;
   return <p>{text}</p>;
 }
