@@ -39,7 +39,7 @@ export default function AIChatRoom() {
         {messages &&
           messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
       </main>
-      <form onSumbit={sendMessage}>
+      <form onSubmit={sendMessage}>
         <input value={formValue} onChange={ (e) => setFormValue(e.target.value) }/>
         <button type="submit">Send</button>
       </form>
