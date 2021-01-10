@@ -1,6 +1,12 @@
 import React, {useState, useRef} from 'react';
 import './App.css';
 
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/auth';
@@ -23,16 +29,16 @@ firebase.initializeApp({
 const firestore = firebase.firestore();
 
 function App() {
-  
+
   return (
     <div className="App">
       <header className="App-header">
         <h1>Let's chat!</h1>
-  
+
       </header>
 
       <section>
-      <ChatRoom /> 
+      <ChatRoom />
       </section>
     </div>
   );
@@ -43,13 +49,13 @@ function ChatRoom() {
   const dummy = useRef();
   const messagesRef = firestore.collection('messages');
   const query = messagesRef.orderBy('createdAt').limit(25);
-  
+
   const [messages] = useCollectionData(query, {idField: "id"});
   const [formValue, setFormValue] = useState('');
 
   const sendMessage = async (e) => {
     e.preventDefault();
-    
+
 
     await messagesRef.add({
       text: formValue,
@@ -59,7 +65,7 @@ function ChatRoom() {
     setFormValue('');
     dummy.current.scrollIntoView({behavior: 'smooth'});
   }
- 
+
   return(
   <>
       <main>
