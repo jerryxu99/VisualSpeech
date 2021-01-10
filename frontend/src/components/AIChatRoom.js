@@ -16,7 +16,7 @@ firebase.initializeApp({
 
 const firestore = firebase.firestore(); //
 
-export default function ChatRoom() {
+export default function AIChatRoom() {
   const messagesRef = firestore.collection('messages'); //
   const query = messagesRef.orderBy('createdAt').limit(25); //
 
@@ -39,7 +39,6 @@ export default function ChatRoom() {
         {messages &&
           messages.map((msg) => <ChatMessage key={msg.id} message={msg} />)}
       </main>
-
       <form onSumbit={sendMessage}>
         <input value={formValue} onChange={ (e) => setFormValue(e.target.value) }/>
         <button type="submit">Send</button>

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import ChatRoom from './ChatRoom';
+import VIChatRoom from './VIChatRoom';
 
 export default function VisuallyImpaired() {
   return (
@@ -12,7 +12,7 @@ export default function VisuallyImpaired() {
       </header>
 
       <section>
-        <ChatRoom />
+        <VIChatRoom />
       </section>
     </div>
   );
